@@ -1,5 +1,7 @@
 # Speech-To-Text Service 
 
+**Note**: This is a privately owned repository. Google or Google Cloud does not either endorse or take responsibility for the contents of this repository.
+
 
 <img src="./img/architecture.png" width=70% height=70%>
 
@@ -25,9 +27,9 @@ _Figure: Architecture of the proposed solution. The *STT-Proxy* server is hosted
    ```bash
    ./build.sh --build --tag v1
    ```
-Cloud build will be used to deploy the infrastructure and build the images. The individual files that configure this can be found in the */builds* folder.
-The terraform modules that define the infrastructure are stored in *infra/terraform* folder.
-The helm charts used to deploy the *stt-proxy service* are stored in *infra/k8s* folder.
+> Cloud build will be used to deploy the infrastructure and build the images. The individual files that configure this can be found in the */builds* folder.
+> The terraform modules that define the infrastructure are stored in *infra/terraform* folder.
+> The helm charts used to deploy the *stt-proxy service* are stored in *infra/k8s* folder.
 
 1. View build in the Console.
 
@@ -35,7 +37,7 @@ The helm charts used to deploy the *stt-proxy service* are stored in *infra/k8s*
    https://console.cloud.google.com/cloud-build
    ```
 
-   > This step can take up to an hour to complete.
+   > This step can take around 20 minutes to complete.
 
 ## What infrastructure is deployed
 
