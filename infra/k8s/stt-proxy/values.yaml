@@ -1,0 +1,41 @@
+replicaCount: 1
+namespace: stt
+serviceAccount:
+  name: stt-proxy
+
+environment:
+  dbName: "stt-db"
+  audioRate: "8000"
+
+image:
+  name: proxy
+  region: europe-west4
+  repository: stt
+  pullPolicy: Always
+  tag: ""
+
+containerPort: 8081
+
+project:
+  id: ""
+
+
+
+podAnnotations: {}
+
+podSecurityContext: {}
+  # fsGroup: 2000
+
+
+service:
+  type: LoadBalancer
+  port: 8081
+
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 80
+  targetMemoryUtilizationPercentage: 80
+

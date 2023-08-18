@@ -1,0 +1,6 @@
+.git
+terraform/
+.terraform/
+Readme*
+docker-compose
+*.sh

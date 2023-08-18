@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: {{ .Release.Name }}
+    namespace: {{ .Values.namespace }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}
+    spec:
+      serviceAccountName: {{ .Values.serviceAccount.name }}
+      containers:
+      - name: stt-proxy
+        image:  {{ .Values.image.region}}-docker.pkg.dev/{{ .Values.project.id }}/{{ .Values.image.respository }}/{{ .Values.image.name }}:{{ .Values.image.tag }}
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        command: ["server"]
+        ports:
+        - name: tcp
+          containerPort: {{ .Values.containerPort }}
+          protocol: TCP
+        resources:
+          limits:
+            cpu: 500m
+            ephemeral-storage: 1Gi
+            memory: 2Gi
+          request:
+            cpu: 500m
+            ephemeral-storage: 1Gi
+            memory: 2Gi
+        env:
+        - name: PROJECT_ID
+          value: {{ .Values.project.id }}
+        - name: PORT
+          value:  "{{ .Values.containerPort }}"
+        - name: DBNAME
+          value: {{ .Values.environment.dbName }}
+        - name: AUDIO_RATE
+          value: "{{ .Values.environment.audioRate }}"
+        - name: LANGUAGE_CODE
+          value: "en-US"

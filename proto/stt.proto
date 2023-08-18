@@ -1,0 +1,17 @@
+syntax = "proto3";
+option go_package = "stt/grpc";
+package stt;
+
+message TranscribeResult {
+    string text = 1;
+    bool is_final = 2;
+    float confidence = 3;
+}
+
+message AudioBlock {
+    bytes block = 1;
+}
+
+service STTService {
+    rpc Transcribe(stream AudioBlock) returns (stream TranscribeResult);
+}

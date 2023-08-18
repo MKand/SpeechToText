@@ -1,0 +1,13 @@
+version: "3.8"
+services:
+  client:
+    image: stt-client:latest
+    build:
+      context: .
+      dockerfile: ./builds/docker/Dockerfile
+    volumes:
+      - ./audiofiles:/audiofiles
+    environment:
+      AUDIO_PATH: 'audiofiles/<file name>'
+      SERVER_ADDR: '<server IP>:8081'
+    command: ["client"]
