@@ -7,12 +7,12 @@ environment:
   dbName: "stt-db"
   audioRate: "8000"
 
-image:
-  name: proxy
-  region: europe-west4
-  repository: stt
-  pullPolicy: Always
-  tag: ""
+# image:
+#   name: proxy
+#   region: europe-west4
+#   repository: stt
+#   pullPolicy: Always
+#   tag: ""
 
 containerPort: 8081
 

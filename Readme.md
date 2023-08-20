@@ -77,4 +77,6 @@ The client can be run locally by using the docker-compose.yaml file. The require
 1. Horzontal pod autoscaler
 1. Integration with Cloud Operations
 1. Implement destroy
+1. Implement cloud endpoints
+1. Implement other security
 

@@ -16,7 +16,8 @@ spec:
       serviceAccountName: {{ .Values.serviceAccount.name }}
       containers:
       - name: stt-proxy
-        image:  {{ .Values.image.region}}-docker.pkg.dev/{{ .Values.project.id }}/{{ .Values.image.respository }}/{{ .Values.image.name }}:{{ .Values.image.tag }}
+        # image:  {{ .Values.image.region}}-docker.pkg.dev/{{ .Values.project.id }}/{{ .Values.image.respository }}/{{ .Values.image.name }}:{{ .Values.image.tag }}
+        image: "{{.Values.image.registry}}/{{.Values.image.repository}}:{{.Values.image.tag}}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         command: ["server"]
         ports:

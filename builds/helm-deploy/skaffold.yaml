@@ -1,0 +1,17 @@
+apiVersion: skaffold/v2beta28
+kind: Config
+build:
+  artifacts:
+    - image: proxy 
+deploy:
+  helm:
+    releases:
+      - name: stt-proxy
+        chartPath: /infra/k8s/stt-proxy
+        setValueTemplates:
+          image.registry: "{{.IMAGE_DOMAIN_proxy}}"
+          image.repository: "{{.IMAGE_REPO_proxy}}"
+          image.tag:  "{{.IMAGE_TAG_proxy}}@{{.IMAGE_DIGEST_proxy}}"
+
+# gcloud deploy releases create release2 --delivery-pipeline=gke --region=europe-west4 --to-target=gke-target-1 --skaffold-file=./builds/helm-deploy/skaffold.yaml
+# https://console.cloud.google.com/cloud-build/builds;region=europe-west4/ed915747-2630-4abd-a7d9-3f527f58f729?project=speaksee-demo-395021&cloudshell=false
