@@ -15,11 +15,11 @@
 timeout: 14400s # 2hr
 substitutions:
   _PROJECT_ID: ${PROJECT_ID}
-  _STATE: "false"
-  _APIS: "false"
-  _VPC: "false"
-  _GKE: "false"
-  _STORAGE: "false"
+  _STATE: "true"
+  _APIS: "true"
+  _VPC: "true"
+  _GKE: "true"
+  _STORAGE: "true"
   _IMAGES: "true"
   _HELM: "false"
   _TAG: ${TAG}

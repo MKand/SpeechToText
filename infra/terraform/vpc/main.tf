@@ -30,6 +30,7 @@ module "vpc" {
   routing_mode = "GLOBAL"
   subnets = local.primary_subnets
   secondary_ranges = local.secondary_subnets
+  firewall_rules =[]
 }
 
 
