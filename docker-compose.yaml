@@ -8,6 +8,8 @@ services:
     volumes:
       - ./audiofiles:/audiofiles
     environment:
-      AUDIO_PATH: 'audiofiles/<file name>'
-      SERVER_ADDR: '<server IP>:8081'
+      # AUDIO_PATH: 'audiofiles/<file name>'
+      # SERVER_ADDR: '<server IP>:8081'
+      AUDIO_PATH: 'audiofiles/commercial_mono.wav'
+      SERVER_ADDR: '35.204.94.32:8081'
     command: ["client"]
