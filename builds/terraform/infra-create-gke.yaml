@@ -30,7 +30,7 @@ steps:
       [[ "${_BUILD}" == "false" ]] && exit 0
       terraform init -backend-config="bucket=${_PROJECT_ID}"
       terraform apply -var="project_id=${_PROJECT_ID}" --auto-approve
-- name: "hashicorp/terraform:1.0.0"
+- name: "hashicorp/terraform:1.4.6"
   id: "create-gke-objects"
   entrypoint: "sh"
   dir: "infra/terraform/gke_objects"

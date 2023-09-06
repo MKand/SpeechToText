@@ -8,4 +8,5 @@ module "stt-proxy-workload-identity" {
   namespace           = kubernetes_service_account.stt-proxy.metadata[0].namespace
   use_existing_k8s_sa = true
   k8s_sa_name         = kubernetes_service_account.stt-proxy.metadata[0].name
+  depends_on = [ kubernetes_service_account.stt-proxy, kubernetes_namespace.ns ]
 }

@@ -12,13 +12,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-timeout: 14400s # 2hr
+timeout: 14400s # 4hr
 substitutions:
   _PROJECT_ID: ${PROJECT_ID}
   _STATE: "true"
   _APIS: "true"
   _VPC: "true"
-  _GKE: "true"
+  _GKE: "false" # This doesn't seem to be idempotent
   _STORAGE: "true"
   _IMAGES: "true"
   _HELM: "false"
