@@ -12,5 +12,6 @@ module "gke" {
   ip_range_services          = local.cluster_info.svc_cidr_name
   horizontal_pod_autoscaling = true
   service_account = google_service_account.service_account_nodes.email
+  create_service_account	= false
 }
 
