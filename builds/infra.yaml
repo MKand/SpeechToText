@@ -84,7 +84,7 @@ steps:
       - |
         [[ "${_IMAGES}" == "false" ]] && exit 0
         exec gcloud builds submit --config builds/artifacts/build-images.yaml --substitutions=_PROJECT_ID=${_PROJECT_ID},_TAG=${_TAG}
- # 5 INSTALL APP ON GKE
+ # 5 Work in progress: INSTALL APP ON GKE
   - name: "gcr.io/cloud-builders/gcloud"
     id: "06-install-helm-chart"
     entrypoint: bash
